@@ -1,6 +1,9 @@
 const express = require('express');
 const fs = require('fs');
 
+// port for heroku n local 
+const port = process.env.PORT || 8080
+
 // Template engine
 const hbs = require('hbs');
 
@@ -61,4 +64,6 @@ app.get('/about' , (request, response) => {
     });
 })
 
-app.listen(8080)
+app.listen(port , () => {
+    console.log(`Server is running on ${port}`)
+})
